@@ -106,3 +106,12 @@
     -fx-text-fill: #ffffff;
     -fx-font-size: 14px;
 }
+.text-field-valid {
+    -fx-border-color: green;
+    -fx-border-width: 2px;
+}
+
+.text-field-invalid {
+    -fx-border-color: red;
+    -fx-border-width: 2px;
+}

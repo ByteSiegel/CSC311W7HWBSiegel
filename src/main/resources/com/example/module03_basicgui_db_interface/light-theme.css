@@ -1,5 +1,13 @@
 /* Light Theme Styles - Dark Green and White */
+.text-field-valid {
+    -fx-border-color: green;
+    -fx-border-width: 2px;
+}
 
+.text-field-invalid {
+    -fx-border-color: red;
+    -fx-border-width: 2px;
+}
 .root {
     -fx-base: #ffffff;
     -fx-background-color: #ffffff;
