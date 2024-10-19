@@ -1,0 +1,108 @@
+/* Dark Theme Styles - Green and Black */
+
+.root {
+    -fx-base: #2b2b2b;
+    -fx-background-color: #1e1e1e;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+.button {
+    -fx-background-color: linear-gradient(#388E3C, #2E7D32);
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-padding: 5 10 5 10;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+    -fx-min-width: 80px;
+    -fx-pref-width: 100px;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(#2E7D32, #388E3C);
+}
+
+/* Style for ImageView to make it appear clickable */
+.image-view {
+    -fx-border-color: #388E3C;
+    -fx-border-width: 2;
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+}
+
+.image-view:hover {
+    -fx-effect: dropshadow(gaussian, rgba(56, 142, 60, 0.5), 4, 0, 0, 2);
+    -fx-cursor: hand;
+}
+
+.image-view:pressed {
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+/* TableView gridlines */
+.table-view {
+    -fx-background-color: #1e1e1e;
+    -fx-table-cell-border-color: #388E3C;
+    -fx-table-header-border-color: #388E3C;
+}
+
+.table-row-cell {
+    -fx-cell-border-color: #388E3C;
+}
+
+.table-cell {
+    -fx-border-color: #388E3C;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 13px;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-border-color: #388E3C;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #388E3C;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+/* Text Fields */
+.text-field, .password-field {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #388E3C;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5 10 5 10;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #2E7D32;
+}
+
+/* Menu Bar */
+.menu-bar {
+    -fx-background-color: #388E3C;
+}
+
+.menu-bar .label {
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+.menu-item {
+    -fx-text-fill: #ffffff;
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+}

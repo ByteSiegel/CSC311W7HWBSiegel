@@ -1,64 +1,78 @@
 package com.example.module03_basicgui_db_interface;
+
+import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.animation.FadeTransition;
 import javafx.util.Duration;
-import java.io.IOException;
 
-
+/**
+ * The main application class that initializes the application stages and scenes.
+ */
 public class DB_Application extends Application {
 
-    public static void main(String[] args) {
-        launch();
-    }
+    private static Stage primaryStage;
 
-
-    private Stage primaryStage;
-
+    @Override
     public void start(Stage primaryStage) {
-        this.primaryStage = primaryStage;
-        this.primaryStage.setResizable(false);
-        showScene1();
-
+        DB_Application.primaryStage = primaryStage;
+        primaryStage.setResizable(false);
+        showSplashScreen();
     }
 
-    private void showScene1() {
+    /**
+     * Displays the splash screen with a fade-out transition.
+     */
+    private void showSplashScreen() {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("splash_screen.fxml"));
+            // Load the splash screen FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("splash_screen.fxml"));
+            Parent root = loader.load();
             Scene scene = new Scene(root, 850, 560);
-            scene.getStylesheets().add("style.css");
             primaryStage.setScene(scene);
             primaryStage.show();
-            changeScene();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
-    public void changeScene() {
-        try {
-            Parent newRoot = FXMLLoader.load(getClass().getResource("db_interface_gui.fxml"));
-
-            Scene currentScene = primaryStage.getScene();
-            Parent currentRoot = currentScene.getRoot();
-            currentScene.getStylesheets().add("style.css");
-            FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), currentRoot);
+            // Set up a fade transition
+            FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), root);
             fadeOut.setFromValue(1);
             fadeOut.setToValue(0);
-            fadeOut.setOnFinished(e -> {
-
-
-                Scene newScene = new Scene(newRoot,850, 560);
-                primaryStage.setScene(newScene);
-
+            fadeOut.setOnFinished(event -> {
+                // After the fade-out, load the main application scene directly
+                showMainScene();
             });
 
             fadeOut.play();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Displays the main application scene.
+     */
+    public void showMainScene() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("db_interface_gui.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root, 850, 560);
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("User Management");
+            scene.getStylesheets().add(getClass().getResource("/com/example/module03_basicgui_db_interface/light-theme.css").toExternalForm());
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Entry point of the application.
+     *
+     * @param args Command-line arguments.
+     */
+    public static void main(String[] args) {
+        launch(args);
     }
 }
